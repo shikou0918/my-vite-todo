@@ -5,6 +5,8 @@ import MainTodo from './components/MainTodo.vue';
 </script>
 
 <template>
+  <!-- reset.css destyle -->
+  <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
   <div class="wrap">
     <TheHeader />
     <main class="main"><MainTodo /></main>
@@ -13,7 +15,6 @@ import MainTodo from './components/MainTodo.vue';
 </template>
 
 <style>
-@import 'assets/css/destyle.css';
 
 .wrap {
   display: flex;
