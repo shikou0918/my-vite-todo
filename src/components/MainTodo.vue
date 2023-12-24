@@ -5,7 +5,7 @@ import { useTodoList } from '/src/composables/useTodoList.js';
 
 const todoRef = ref('');
 let isEditRef = ref(false);
-const { todoListRef, add, show, edit, del, check } = useTodoList();
+const { todoListRef, add, show, edit, del, check, countFin } = useTodoList();
 
 const addTodo = () => {
   add(todoRef.value);
@@ -59,7 +59,7 @@ const changeCheck = (id) => {
     </div>
   </div>
   <div class="finCount">
-    <span>完了：、</span>
+    <span>完了：{{ countFin }}、</span>
     <span>未完了：</span>
   </div>
 </template>
@@ -124,7 +124,7 @@ const changeCheck = (id) => {
 
 .pink {
   background-color: #ff4081;
-}
+}1
 
 .fin {
   text-decoration: line-through;

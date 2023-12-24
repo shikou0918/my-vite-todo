@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { computed, ref} from 'vue';
 
 export const useTodoList = (id) => {
   const todoListRef = ref([]);
@@ -54,5 +54,12 @@ export const useTodoList = (id) => {
     localStorage.todoList = JSON.stringify(todoListRef.value);
   }
 
-  return { todoListRef, add, show, edit, del, check };
+  const countFin = computed(() => {
+    // todo.checkedは「true/false」が入っているため、trueのtudoが返る
+    const finArr = todoListRef.value.filter((todo) => todo.checked);
+    console.log(finArr);  
+    return finArr.length
+  });
+
+  return { todoListRef, add, show, edit, del, check, countFin  };
 }
