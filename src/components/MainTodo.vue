@@ -2,6 +2,7 @@
 
 import { ref } from 'vue';
 import { useTodoList } from '/src/composables/useTodoList.js';
+import BaseButton from './BaseButton.vue';
 
 const todoRef = ref('');
 let isEditRef = ref(false);
@@ -30,7 +31,7 @@ const deleteTodo = (id) => {
 const changeCheck = (id) => {
   check(id);
 }
-  
+
 </script>
 
 <template>
@@ -40,8 +41,8 @@ const changeCheck = (id) => {
       class="todo_input"
       v-model="todoRef"
       placeholder="+ TODOを入力">
-      <button class="btn green" @click="editTodo" v-if="isEditRef">変更</button>
-      <button class="btn" @click="addTodo" v-else>追加</button>
+      <BaseButton color="green" @on-click="editTodo" v-if="isEditRef">変更</BaseButton>
+      <BaseButton color="blue" @on-click="addTodo" v-else>追加</BaseButton>
   </div>
   <div class="box_list">
     <div class="todo_list" v-for="todo in todoListRef" :key="todo.id">
@@ -54,8 +55,8 @@ const changeCheck = (id) => {
         <label>{{ todo.task }}</label>
       </div>
       <div class="btns">
-        <button class="btn green" @click="showTodo(todo.id)">編</button>
-        <button class="btn pink" @click="deleteTodo(todo.id)">削</button>
+        <BaseButton color="green" @on-click="showTodo(todo.id)">編</BaseButton>
+        <BaseButton color="pink" @on-click="deleteTodo(todo.id)">削</BaseButton>
       </div>
     </div>
   </div>
@@ -80,14 +81,6 @@ const changeCheck = (id) => {
   border-radius: 6px;
 }
 
-.btn {
-  padding: 8px;
-  background-color: #03a9f4;
-  border-radius: 6px;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-}
 .box_list {
   margin-top: 20px;
   display: flex;
@@ -119,8 +112,12 @@ const changeCheck = (id) => {
   gap: 4px;
 }
 
-.green {
-  background-color: #00c853;
+.btn {
+  padding: 8px;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
 }
 
 .pink {
