@@ -1,6 +1,13 @@
 <script setup>
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const goBlog = () => {
+  // console.log('goBlog');
+  router.push('/blog');
+};
 </script>
 
 <template>
@@ -8,6 +15,13 @@ import TheFooter from './components/TheFooter.vue';
   <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
   <div class="wrap">
     <TheHeader />
+    <nav>
+      <router-link to="/">Home</router-link>
+      | <router-link to="/about">About</router-link>
+      | <span @click="goBlog">Blog</span>
+      | <router-link to="/blog/1">Blog1</router-link>
+      | <router-link to="/blog/2">Blog2</router-link>
+    </nav>
     <main class="main"><router-view /></main>
     <TheFooter />
   </div>
