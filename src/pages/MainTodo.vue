@@ -8,7 +8,7 @@ import ButtonEdit from '../components/ButtonEdit.vue';
 import ButtonShow from '../components/ButtonShow.vue';
 
 const todoRef = ref('abc');
-let isEditRef = ref(false);
+const isEditRef = ref(false);
 
 onMounted(() => {
   const inpMounted = document.getElementById('inp').value;
