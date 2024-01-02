@@ -4,7 +4,6 @@ const emit = defineEmits(['on-click']);
 const onClick = () => {
   emit('on-click');
 }
-const aaa = () => {}
 </script>
 
 <template>

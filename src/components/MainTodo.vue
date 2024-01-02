@@ -3,6 +3,7 @@
 import { ref } from 'vue';
 import { useTodoList } from '/src/composables/useTodoList.js';
 import BaseButton from './BaseButton.vue';
+import ButtonAdd from './ButtonAdd.vue';
 
 const todoRef = ref('');
 let isEditRef = ref(false);
@@ -42,7 +43,7 @@ const changeCheck = (id) => {
       v-model="todoRef"
       placeholder="+ TODOを入力">
       <BaseButton color="green" @on-click="editTodo" v-if="isEditRef">変更</BaseButton>
-      <BaseButton color="blue" @on-click="addTodo" v-else>追加</BaseButton>
+      <ButtonAdd color="blue" @on-click="addTodo" v-else />
   </div>
   <div class="box_list">
     <div class="todo_list" v-for="todo in todoListRef" :key="todo.id">
