@@ -1,14 +1,27 @@
 <script setup>
 
-import { ref } from 'vue';
+import { onMounted, onUpdated, ref } from 'vue';
 import { useTodoList } from '/src/composables/useTodoList.js';
 import BaseButton from './BaseButton.vue';
 import ButtonAdd from './ButtonAdd.vue';
 import ButtonEdit from './ButtonEdit.vue';
 import ButtonShow from './ButtonShow.vue';
 
-const todoRef = ref('');
+const todoRef = ref('abc');
 let isEditRef = ref(false);
+
+onMounted(() => {
+  const inpMounted = document.getElementById('inp').value;
+  console.log(inpMounted);
+});
+
+onUpdated(() => {
+  console.log('onUpdated: ', todoRef.value);
+});
+
+const inpSetup = document.getElementById('inp');
+console.log(inpSetup);
+
 const { todoListRef, add, show, edit, del, check, countFin } = useTodoList();
 
 const addTodo = () => {
@@ -34,12 +47,12 @@ const deleteTodo = (id) => {
 const changeCheck = (id) => {
   check(id);
 }
-
 </script>
 
 <template>
   <div class="box_input">
     <input
+      id="inp"
       type="text"
       class="todo_input"
       v-model="todoRef"

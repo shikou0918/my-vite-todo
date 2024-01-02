@@ -55,7 +55,6 @@ export const useTodoList = (id) => {
   }
 
   const countFin = computed(() => {
-    console.log('computed');
     // todo.checkedは「true/false」が入っているため、trueのtudoが返る
     const finArr = todoListRef.value.filter((todo) => todo.checked);
     return finArr.length
