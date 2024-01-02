@@ -5,6 +5,7 @@ import { useTodoList } from '/src/composables/useTodoList.js';
 import BaseButton from './BaseButton.vue';
 import ButtonAdd from './ButtonAdd.vue';
 import ButtonEdit from './ButtonEdit.vue';
+import ButtonShow from './ButtonShow.vue';
 
 const todoRef = ref('');
 let isEditRef = ref(false);
@@ -57,7 +58,7 @@ const changeCheck = (id) => {
         <label>{{ todo.task }}</label>
       </div>
       <div class="btns">
-        <BaseButton color="green" @on-click="showTodo(todo.id)">編</BaseButton>
+        <ButtonShow @on-click="showTodo(todo.id)" />
         <BaseButton color="pink" @on-click="deleteTodo(todo.id)">削</BaseButton>
       </div>
     </div>
